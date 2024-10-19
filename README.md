@@ -15,6 +15,7 @@ Each image is 768x768 pixels.
 You can download the dataset from https://www.kaggle.com/competitions/airbus-ship-detection
 # Train the Model:
 model.train(dataset_train, dataset_val, learning_rate=config.LEARNING_RATE * 1.5, epochs=2, layers='all')
+
 The model is trained for segmentation with the provided RLE masks. Training and validation sets are created using an 80-20 split of the training dataset.
 # Inference
 model = modellib.MaskRCNN(mode="inference", config=inference_config, model_dir=WORKING_DIR)
