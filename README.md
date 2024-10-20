@@ -13,9 +13,13 @@ Visualization of ship masks, and encoded/decoded results.
 
 ## Dataset
 The dataset used for this project is from the Airbus Ship Detection Challenge. It contains images along with the corresponding ship masks in Run-Length Encoded (RLE) format.
+
 **Training Data**: 192,556 satellite images.
+
 **Test Data**: 156,060 satellite images.
+
 Each image is 768x768 pixels.
+
 You can download the dataset from https://www.kaggle.com/competitions/airbus-ship-detection
 ## Train the Model:
 model.train(dataset_train, dataset_val, learning_rate=config.LEARNING_RATE * 1.5, epochs=2, layers='all')
@@ -25,6 +29,7 @@ The model is trained for segmentation with the provided RLE masks. Training and 
 model = modellib.MaskRCNN(mode="inference", config=inference_config, model_dir=WORKING_DIR)
 ## Load the trained weights and then run predictions on the test images
 model.load_weights(WEIGHTS_PATH, by_name=True)
+
 result = model.detect([image], verbose=1)
 ## Results
 The model successfully segments ships from satellite images. 
